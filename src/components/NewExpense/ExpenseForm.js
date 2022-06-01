@@ -24,12 +24,10 @@ const ExpenseForm = (props) => {
       amount: eneteredAmount,
       date: eneteredDate,
     };
-    console.log("Child Here.");
     props.onSaveExpenseData(body);
     setEnteredTitle('');
     setEnteredAmount('');
     setEnteredDate('');
-    console.log(body);
   };
   return (
     <form onSubmit={submitHandler}>

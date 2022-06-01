@@ -9,7 +9,6 @@ const NewExpense = (props) => {
       id: Math.random().toString(),
     };
     props.someProperty(newBody)
-    console.log(newBody, "Parent hereeee !!!!");
   };
   return (
     <div className="new-expense">
