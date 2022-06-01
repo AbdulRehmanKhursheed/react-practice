@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 import ExpenseItem from './components/ExpenseItems';
+import NewExpense from './components/NewExpense/NewExpense';
 function App() {
   const expenses=[
     {
@@ -14,10 +15,22 @@ function App() {
       date:new Date()
     }
   ]
+  const [expenseArray, setExpenseArray]=useState(expenses)
+  const onGettingNewExpense=(val)=>{
+    let body={
+      ...val,
+      date:new Date()
+    }
+    expenses.push(body);
+    console.log(expenses);
+    console.log(expenseArray);
+    setExpenseArray(expenses)
+  }
   return (
     <div  className="expenses">
-       {expenses.map((value, index) => {
-        return <ExpenseItem name={expenses[index].title} date={expenses[index].date} amount={expenses[index].amount}></ExpenseItem>
+      <NewExpense someProperty={onGettingNewExpense}/>
+       {expenseArray.map((value, index) => {
+        return <ExpenseItem name={expenseArray[index].title} date={expenseArray[index].date} amount={expenseArray[index].amount}></ExpenseItem>
       })}
       
     </div>
