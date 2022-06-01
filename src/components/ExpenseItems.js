@@ -1,5 +1,4 @@
 import "./ExpenseItems.css";
-import {useState} from'react';
 function ExpenseItem(props) {
     const month=props.date.toLocaleString('en-US', {day:'2-digit'})
   return (
